@@ -1,7 +1,7 @@
 /* 
 Day 1: Exercises
 */
-//Note: You can define same name variable with let keyword just 1 time in a block. According to this information you need to run this code seperately.
+//Note: You can define the same name variable with let keyword just 1 time in a block. According to this information you need to run this code separately.
 
 // Write a single line comment which says, comments can make code readable
 // Comment
