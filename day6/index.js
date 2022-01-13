@@ -371,3 +371,37 @@ for (let i = 0; i < fullStack.length; i++) {
     console.log(fullStack[i][x]);
   }
 }
+
+// *****************
+// Exercise: Level 3
+// *****************
+
+// Copy countries array(Avoid mutation)
+copyCountries = [...countries];
+
+// Arrays are mutable. Create a copy of array which does not modify the original. Sort the copied array and store in a variable sortedCountries
+sortedCountries = [...countries];
+sortedCountries.sort();
+
+// Extract all the countries contain the word 'land' from the countries array and print it as array
+includeLandArray = [];
+for (const country of countries) {
+  if (country.includes("land")) {
+    includeLandArray = [...includeLandArray, country];
+  }
+}
+console.log(includeLandArray);
+
+// Extract all the countries containing two or more words from the countries array and print
+for (const country of countries) {
+  if (country.split(" ").length > 1) {
+    console.log(country);
+  }
+}
+
+// Reverse the countries array and capitalize each country and stored it as an array
+for (let i = 0; i < countries.length; i++) {
+  countries[i] = countries[i].toUpperCase();
+}
+
+console.log(countries);
