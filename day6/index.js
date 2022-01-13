@@ -197,8 +197,177 @@ console.log(uniqueArray);
 
 //   Develop a small script which generate a six characters random id:
 //   5j2khz
-var characters =
+const characters =
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 for (let i = 0; i <= 5; i++) {
   console.log(characters[Math.round(Math.random() * characters.length)]);
+}
+
+// *****************
+// Exercise: Level 2
+// *****************
+
+// Develop a small script which generate any number of characters random id:
+//   fe3jo1gl124g
+//   xkqci4utda1lmbelpkm03rba
+let max = Math.ceil(Math.random() * 11);
+let str = "";
+for (let i = 0; i < max; i++) {
+  str += characters[Math.round(Math.random() * characters.length)];
+}
+console.log(str);
+
+// Write a script which generates a random hexadecimal number.
+// '#ee33df'
+let hexRef = [
+  "0",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+];
+for (let i = 0; i <= 5; i++) {
+  str += hexRef[Math.floor(Math.random() * (hexRef.length + 1))];
+}
+console.log(`#${str}`);
+
+// Write a script which generates a random rgb color number.
+// rgb(240,180,80)
+for (let i = 0; i < 2; i++) {
+  Math.floor(Math.random() * 256);
+}
+
+// Using the above countries array, create the following new array.
+// ["ALBANIA", "BOLIVIA", "CANADA", "DENMARK", "ETHIOPIA", "FINLAND", "GERMANY", "HUNGARY", "IRELAND", "JAPAN", "KENYA"]
+let countries2 = countries.slice();
+
+// Using the above countries array, create an array for countries length'.
+// [7, 7, 6, 7, 8, 7, 7, 7, 7, 5, 5]
+countriesLenght = [];
+for (const country of countries) {
+  countriesLenght.push(country.length);
+}
+console.log(countriesLenght);
+
+// Use the countries array to create the following array of arrays:
+//   [
+//   ['Albania', 'ALB', 7],
+//   ['Bolivia', 'BOL', 7],
+//   ['Canada', 'CAN', 6],
+//   ['Denmark', 'DEN', 7],
+//   ['Ethiopia', 'ETH', 8],
+//   ['Finland', 'FIN', 7],
+//   ['Germany', 'GER', 7],
+//   ['Hungary', 'HUN', 7],
+//   ['Ireland', 'IRE', 7],
+//   ['Iceland', 'ICE', 7],
+//   ['Japan', 'JAP', 5],
+//   ['Kenya', 'KEN', 5]
+// ]
+let countriesInfo = [];
+for (const country of countries) {
+  countriesInfo.push([
+    country,
+    country.slice(0, 3).toUpperCase(),
+    country.length,
+  ]);
+}
+console.log(countriesInfo);
+
+// In above countries array, check if there is a country or countries containing the word 'land'. If there are countries containing 'land', print it as array. If there is no country containing the word 'land', print 'All these countries are without land'.
+// ['Finland','Ireland', 'Iceland']
+let countriesWithLand = [];
+for (const country of countries) {
+  if (country.includes("land")) {
+    countriesWithLand = [...countriesWithLand, country];
+  }
+}
+countriesWithLand.length > 0
+  ? console.log(countriesWithLand)
+  : "All these countries are without land";
+
+// In above countries array, check if there is a country or countries end with a substring 'ia'. If there are countries end with, print it as array. If there is no country containing the word 'ai', print 'These are countries ends without ia'.
+// ['Albania', 'Bolivia','Ethiopia']
+let countriesWithKeyIA = [];
+for (const country of countries) {
+  if (country.endsWith("ia")) {
+    countriesWithKeyIA.push(country);
+  }
+}
+countriesWithKeyIA.length > 0
+  ? console.log(countriesWithKeyIA)
+  : "These are countries ends without ia";
+
+// Using the above countries array, find the country containing the biggest number of characters.
+// Ethiopia
+let longestCountry = countries[0];
+for (let i = 1; i < countries.length; i++) {
+  if (countries[i].length > longestCountry.length) {
+    longestCountry = countries[i];
+  }
+}
+console.log(longestCountry);
+
+// Using the above countries array, find the country containing only 5 characters.
+// ['Japan', 'Kenya']
+let fiveCharactersCountries = [];
+for (const country of countries) {
+  if (country.length === 5) {
+    fiveCharactersCountries.push(country);
+  }
+}
+
+// Find the longest word in the webTechs array
+webTechs.sort(function (a, b) {
+  return b.length - a.length;
+});
+console.log(webTechs[0]);
+
+// Use the webTechs array to create the following array of arrays:
+// [["HTML", 4], ["CSS", 3],["JavaScript", 10],["React", 5],["Redux", 5],["Node", 4],["MongoDB", 7]]
+let webTechsWithLenght = [];
+for (const webTech of webTechs) {
+  webTechsWithLenght = [...webTechsWithLenght, [webTech, webTech.length]];
+}
+
+// An application created using MongoDB, Express, React and Node is called a MERN stack app. Create the acronym MERN by using the array mernStack
+console.log(mernStack[0][0], mernStack[1][0], mernStack[2][0], mernStack[3][0]);
+
+// This is a fruit array , ['banana', 'orange', 'mango', 'lemon'] reverse the order using loop without using a reverse method.
+const fruits = ["banana", "orange", "mango", "lemon"];
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}
+for (let i = fruits.length - 1; i >= 0; i--) {
+  console.log(fruits[i]);
+}
+
+// Print all the elements of array as shown below.
+const fullStack = [
+  ["HTML", "CSS", "JS", "React"],
+  ["Node", "Express", "MongoDB"],
+];
+//   HTML
+//   CSS
+//   JS
+//   REACT
+//   NODE
+//   EXPRESS
+//   MONGODB
+
+for (let i = 0; i < fullStack.length; i++) {
+  for (let x = 0; x < fullStack[i].length; x++) {
+    console.log(fullStack[i][x]);
+  }
 }
