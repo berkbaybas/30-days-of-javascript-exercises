@@ -127,3 +127,172 @@ countries.findIndex((country) => country === "Norway"); // 3
 
 // Use findIndex to find the position of Russia if it doesn't exist in the array you will get -1.
 countries.findIndex((country) => country === "Russia"); // -1
+
+// *****************
+// Exercise: Level 2
+// *****************
+
+// Find the total price of products by chaining two or more array iterators(eg. arr.map(callback).filter(callback).reduce(callback))
+let sum = 0;
+products.map((product) => {
+  if (typeof product.price === "number") {
+    sum += product.price;
+  }
+});
+console.log(sum);
+
+newArray = products.filter((product) => typeof product.price === "number");
+newArray.forEach((el) => {
+  sum += el.price;
+});
+
+sum = products.reduce((acc, cur) => {
+  if (typeof cur.price === "number") {
+    return acc + cur.price;
+  } else {
+    return acc + 0;
+  }
+}, 0);
+
+// Declare a function called categorizeCountries which returns an array of countries which have some common pattern(you find the countries array in this repository as countries.js(eg 'land', 'ia', 'island','stan')).
+countries.filter((country) => country.name.includes("island"));
+
+// Declare a getFirstTenCountries function and return an array of ten countries. Use different functional programming to work on the countries.js array
+countries.filter((country, index) => index < 11);
+
+// Find out which letter is used many times as initial for a country name from the countries array (eg. Finland, Fiji, France etc)
+// https://stackoverflow.com/questions/68259056/check-how-many-times-a-letter-in-the-alphabet-was-used-as-a-starting-letter-for
+const getStartingLetters = (array) => {
+  const occurences = array.reduce((acc, { name }) => {
+    const startingLetter = name[0];
+    acc[startingLetter] = (acc[startingLetter] || 0) + 1;
+
+    return acc;
+  }, {});
+
+  console.log(occurences);
+};
+
+// *****************
+// Exercise: Level 2
+// *****************
+
+// sort by name
+items.sort(function (a, b) {
+  var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+  var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  // names must be equal
+  return 0;
+});
+
+// Use the countries information, in the data folder. Sort countries by name, by capital, by population
+countries.sort((a, b) => {
+  let nameA = a.name.toLowerCase();
+  let nameB = b.name.toLowerCase();
+
+  if (nameA < nameB) {
+    return -1;
+  }
+
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  // equal
+  return 0;
+});
+
+countries.sort((a, b) => {
+  let capitalA = a.capital.toLowerCase();
+  let capitalB = b.capital.toLowerCase();
+
+  if (capitalA < capitalB) {
+    return -1;
+  }
+
+  if (capitalA > capitalB) {
+    return 1;
+  }
+
+  return 0;
+});
+
+countries.sort((a, b) => {
+  return a.population - b.population;
+});
+
+// *** Find the 10 most spoken languages:
+// // Your output should look like this
+// console.log(mostSpokenLanguages(countries, 10))
+// [
+// {country: 'English',count:91},
+// {country: 'French',count:45},
+// {country: 'Arabic',count:25},
+// {country: 'Spanish',count:24},
+// {country:'Russian',count:9},
+// {country:'Portuguese', count:9},
+// {country:'Dutch',count:8},
+// {country:'German',count:7},
+// {country:'Chinese',count:5},
+// {country:'Swahili',count:4}
+// ]
+
+// Your output should look like this
+// console.log(mostSpokenLanguages(countries, 3))
+// [
+// {country: 'English',count: 91},
+// {country: 'French',count: 45},
+// {country: 'Arabic',count: 25},
+// ]```
+
+// problem solve algorithm
+// reduce
+// sort
+// filter quantity
+
+// *** Use countries_data.js file create a function which create the ten most populated countries
+// console.log(mostPopulatedCountries(countries, 10))
+// [
+// {country: 'China', population: 1377422166},
+// {country: 'India', population: 1295210000},
+// {country: 'United States of America', population: 323947000},
+// {country: 'Indonesia', population: 258705000},
+// {country: 'Brazil', population: 206135893},
+// {country: 'Pakistan', population: 194125062},
+// {country: 'Nigeria', population: 186988000},
+// {country: 'Bangladesh', population: 161006790},
+// {country: 'Russian Federation', population: 146599183},
+// {country: 'Japan', population: 126960000}
+// ]
+
+// console.log(mostPopulatedCountries(countries, 3))
+// [
+// {country: 'China', population: 1377422166},
+// {country: 'India', population: 1295210000},
+// {country: 'United States of America', population: 323947000}
+// ]
+// ```
+
+// problem solve algorithm
+// sort
+// filter quantity
+// reduce
+const mostPopulatedCountries = (countries, quantity) => {
+  countries.sort((a, b) => {
+    return a.population - b.population;
+  });
+
+  filteredCountries = countries.filter((country, index) => index < quantity);
+
+  return filteredCountries.reduce((acc, cur) => {
+    acc = [...acc, { country: cur.name, population: cur.population }];
+    return acc;
+  }, []);
+};
