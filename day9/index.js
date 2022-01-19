@@ -174,7 +174,7 @@ const getStartingLetters = (array) => {
 };
 
 // *****************
-// Exercise: Level 2
+// Exercise: Level 3
 // *****************
 
 // sort by name
