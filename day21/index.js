@@ -73,3 +73,55 @@ for (let i = 0; i < pNodeList.length; i++) {
 // Set text content, id and class to each paragraph
 
 thirdNode.innerHTML = "Updated!";
+
+// *****************
+// Exercise: Level 3
+// *****************
+
+// The year color is changing every 1 second
+// The date and time background color is changing every on seconds
+// Completed challenge has background green
+// Ongoing challenge has background yellow
+// Coming challenges have background red
+let hexStr = "";
+let hexRef = [
+  "0",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+];
+
+setInterval(() => {
+  hexStr = "";
+  for (let i = 0; i <= 5; i++) {
+    hexStr += hexRef[Math.floor(Math.random() * (hexRef.length + 1))];
+  }
+
+  const colorNodeList = document.querySelectorAll(".intervalColor");
+
+  colorNodeList.forEach((el) => {
+    el.style.color = `#${hexStr}`;
+  });
+}, 1000);
+
+const completedNode = document.querySelector(".completed");
+const ongoingNode = document.querySelector(".ongoing");
+const comingNodeList = document.querySelectorAll(".coming");
+
+completedNode.style.color = "green";
+ongoingNode.style.color = "green";
+comingNodeList.forEach((el) => {
+  el.style.color = "red";
+});
