@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>day 22</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+
+      h1 {
+        color: green;
+      }
+
+      small {
+        visibility: hidden;
+        color: red;
+      }
+
+      .btn {
+        background-color: green;
+        padding: 10px;
+        margin: 10px;
+        border: none;
+        color: white;
+      }
+
+      .wrapper {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 500px;
+        color: white;
+      }
+
+      .prime,
+      .even,
+      .odd {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 4px;
+      }
+
+      .prime {
+        background-color: green;
+      }
+
+      .odd {
+        background-color: rgb(156, 156, 37);
+      }
+
+      .even {
+        background-color: red;
+      }
+
+      .wrapper-code {
+        margin-top: 50px;
+      }
+
+      #code {
+        color: green;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        height: 150px;
+        width: 150px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Number Generator</h1>
+    <small class="danger">invalid! Please enter a number</small>
+    <input type="text" class="numberInput" />
+    <button class="btn">Generate</button>
+    <div class="wrapper"></div>
+
+    <div class="wrapper-code">
+      <strong>key code</strong>
+      <div id="code"></div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
